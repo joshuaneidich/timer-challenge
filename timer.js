@@ -45,9 +45,10 @@ function stopTimer () {
 
 function resetTimer () {
 stopTimer();
+stopButton.className="";
 addSeconds=0;
 addMinutes=0;
-minutesDisplay.innerHTML="";
-secondsDisplay.innerHTML="";
+minutesDisplay.innerHTML="0 minutes";
+secondsDisplay.innerHTML="0 seconds";
 milliSecondsDisplay.innerHTML="";
 };

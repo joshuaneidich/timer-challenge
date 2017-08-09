@@ -10,7 +10,18 @@ body{
   background-color: teal;
 }
 
+#timerDisplay{
+  background-color: white;
+  border-radius: 50%;
+  padding: 1em;
+}
+
 button{
   font-size: 30px;
   margin-top: 40px;
+}
+
+#controlDisplay{
+  display: flex;
+  justify-content: space-around;
 }
