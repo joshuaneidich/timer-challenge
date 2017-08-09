@@ -3,17 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="timer.css">
     <title>Timer app</title>
   </head>
   <body>
-    <div id="timerDisplay">
-      <span id="minutesDisplay"></span>
-      <span id="secondsDisplay"></span>
-      <span id="milliSecondsDisplay"></span>
+    <div id="timerContainer">
+      <div id="timerDisplay">
+        <span id="minutesDisplay">0 minutes</span>
+        <span id="secondsDisplay">0 seconds</span>
+      </div>
+      <div id="controlDisplay">
+        <button id="startButton">start</button>
+        <button id="stopButton">stop</button>
+        <button id="resetButton">reset</button>
+      </div>
     </div>
-    <button id="startButton">start</button>
-    <button id="stopButton">stop</button>
-    <button id="resetButton">reset</button>
     <script src="timer.js" charset="utf-8"></script>
   </body>
 </html>

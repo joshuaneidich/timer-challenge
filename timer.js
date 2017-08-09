@@ -21,6 +21,7 @@ resetButton.addEventListener("click", resetTimer);
 
 
 function startTimer () {
+stopButton.className="";
 var currentTime=new Date();
 var timeDifference=currentTime-pausedTime;
 var seconds=Math.floor((timeDifference/1000)+addSeconds);
@@ -30,13 +31,16 @@ minutesDisplay.innerHTML=minutes+" minutes";
 };
 
 function stopTimer () {
-  clearInterval(window.myTimer);
-  var currentTime=new Date();
-  var timeDifference=currentTime-pausedTime;
-  var seconds=Math.floor(timeDifference/1000);
-  var minutes=Math.floor(timeDifference/1000/60);
-  addSeconds+=seconds;
-  addMinutes+=minutes;
+  if (stopButton.className===""){
+    clearInterval(window.myTimer);
+    var currentTime=new Date();
+    var timeDifference=currentTime-pausedTime;
+    var seconds=Math.floor(timeDifference/1000);
+    var minutes=Math.floor(timeDifference/1000/60);
+    addSeconds+=seconds;
+    addMinutes+=minutes;
+    stopButton.className="stopped";
+}
 };
 
 function resetTimer () {

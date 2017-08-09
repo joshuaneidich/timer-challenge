@@ -1,0 +1,16 @@
+body, button{
+  font-size: 50px;
+}
+
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 800px;
+  background-color: teal;
+}
+
+button{
+  font-size: 30px;
+  margin-top: 40px;
+}
