@@ -3,11 +3,13 @@ var stopButton=document.getElementById('stopButton');
 var resetButton=document.getElementById('resetButton');
 var minutesDisplay=document.getElementById('minutesDisplay');
 var secondsDisplay=document.getElementById('secondsDisplay');
-var  miliSecondsDisplay=document.getElementById('miliSecondsDisplay');
-// var currentTime;
+var  milliSecondsDisplay=document.getElementById('milliSecondsDisplay');
+var pausedTime;
+var addSeconds=0;
+var addMinutes=0;
 window.myTimer;
 startButton.addEventListener("click", function(){
-  // currentTime=new Date();
+  pausedTime=new Date();
    window.myTimer = setInterval(startTimer, 100);
 
 
@@ -19,44 +21,29 @@ resetButton.addEventListener("click", resetTimer);
 
 
 function startTimer () {
-currentTime=new Date();
-
-var milliseconds= currentTime.getMilliseconds();
-var seconds= currentTime.getSeconds();
-var minutes=currentTime.getMinutes();
-minutesDisplay.innerHTML=minutes+" minutes";
+var currentTime=new Date();
+var timeDifference=currentTime-pausedTime;
+var seconds=Math.floor((timeDifference/1000)+addSeconds);
+var minutes=Math.floor((timeDifference/1000/60)+addMinutes);
 secondsDisplay.innerHTML=seconds+ " seconds";
-miliSecondsDisplay.innerHTML=milliseconds+" milliseconds";
-
-
+minutesDisplay.innerHTML=minutes+" minutes";
 };
 
 function stopTimer () {
-  console.log("stop");
   clearInterval(window.myTimer);
-  // console.log
-  // var stoppedMinutes=minutesDisplay.innerHTML;
-  // var stoppedSeconds=secondsDisplay.innerHTML;
-  // var stoppedMilliseconds=miliSecondsDisplay.innerHTML;
-  //
-  // var milliseconds= currentTime.getMilliseconds();
-  // var seconds= currentTime.getSeconds();
-  // var minutes=currentTime.getMinutes();
-  // minutesDisplay.innerHTML=minutes+" minutes";
-  // secondsDisplay.innerHTML=seconds+ " seconds";
-  // miliSecondsDisplay.innerHTML=milliseconds+" milliseconds";
-
+  var currentTime=new Date();
+  var timeDifference=currentTime-pausedTime;
+  var seconds=Math.floor(timeDifference/1000);
+  var minutes=Math.floor(timeDifference/1000/60);
+  addSeconds+=seconds;
+  addMinutes+=minutes;
 };
 
 function resetTimer () {
 stopTimer();
+addSeconds=0;
+addMinutes=0;
 minutesDisplay.innerHTML="";
 secondsDisplay.innerHTML="";
-miliSecondsDisplay.innerHTML="";
+milliSecondsDisplay.innerHTML="";
 };
-
-
-
-// https://www.feith.com/dataservices/rest/v1/api/developer/object/stopwatch.html
-
-// matt@feith.com
