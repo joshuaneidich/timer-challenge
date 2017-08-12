@@ -7,10 +7,10 @@ var  milliSecondsDisplay=document.getElementById('milliSecondsDisplay');
 var pausedTime;
 var addSeconds=0;
 var addMinutes=0;
-window.myTimer;
+// var myTimer;
 startButton.addEventListener("click", function(){
   pausedTime=new Date();
-   window.myTimer = setInterval(startTimer, 100);
+   myTimer = setInterval(startTimer, 100);
 
 
  }
